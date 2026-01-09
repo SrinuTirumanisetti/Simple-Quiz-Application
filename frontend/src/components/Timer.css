@@ -1,0 +1,155 @@
+.timer-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.timer-container.warning {
+    border-color: var(--warning);
+    animation: pulse-warning 2s ease-in-out infinite;
+}
+
+.timer-container.critical {
+    border-color: var(--error);
+    animation: pulse-critical 1s ease-in-out infinite;
+}
+
+@keyframes pulse-warning {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+    }
+}
+
+@keyframes pulse-critical {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+    }
+}
+
+.timer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--accent-gradient);
+    border-radius: var(--radius-sm);
+    color: white;
+    flex-shrink: 0;
+}
+
+.timer-container.warning .timer-icon {
+    background: var(--warning);
+}
+
+.timer-container.critical .timer-icon {
+    background: var(--error);
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+}
+
+.timer-content {
+    flex: 1;
+}
+
+.timer-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.timer-display {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    line-height: 1;
+    margin-top: 0.25rem;
+}
+
+.timer-container.warning .timer-display {
+    color: var(--warning);
+}
+
+.timer-container.critical .timer-display {
+    color: var(--error);
+}
+
+.timer-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--bg-tertiary);
+}
+
+.timer-progress-bar {
+    height: 100%;
+    background: var(--accent-gradient);
+    transition: width 1s linear;
+}
+
+.timer-container.warning .timer-progress-bar {
+    background: var(--warning);
+}
+
+.timer-container.critical .timer-progress-bar {
+    background: var(--error);
+}
+
+@media (max-width: 768px) {
+    .timer-container {
+        padding: var(--spacing-sm);
+    }
+
+    .timer-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .timer-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .timer-display {
+        font-size: 1.25rem;
+    }
+}
