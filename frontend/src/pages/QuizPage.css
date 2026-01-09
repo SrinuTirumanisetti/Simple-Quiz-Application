@@ -53,8 +53,8 @@
 
 .quiz-container {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1fr 280px;
+    gap: var(--spacing-md);
     padding-top: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
     align-items: start;
@@ -65,7 +65,7 @@
 }
 
 .question-card {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     animation: fadeIn 0.3s ease;
 }
@@ -120,7 +120,7 @@
 }
 
 .question-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.4;
@@ -138,7 +138,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    padding: var(--spacing-md);
+    padding: 0.75rem 1rem;
     background: var(--bg-tertiary);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
